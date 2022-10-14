@@ -44,15 +44,11 @@ Flowpack:
     #
     debug: false
 
+
 Neos:
   Flow:
-
     http:
-      chain:
-
-        'preprocess':
-          chain:
-
-            'flowpackCors':
-              position: 'end'
-              component: 'Flowpack\Cors\Http\Component\CorsComponent'
+      middlewares:
+        Cors:
+          position: 'start'
+          middleware: 'Flowpack\Cors\Http\Middleware\CorsMiddleware'
